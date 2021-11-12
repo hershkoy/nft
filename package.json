@@ -16,9 +16,9 @@
     "eth-gas-reporter": "^0.2.22"
   },
   "scripts": {
-    "heroku-prebuild": "",
-    "build": "cd app/client && npm install ",
-    "start": "cd app/client && npm start"
+    "heroku-prebuild": "npm install -g yarn",
+    "build": "cd app/client && yarn install ",
+    "start": "cd app/client && yarn build"
   },
   "heroku-run-build-script": true
 }
