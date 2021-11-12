@@ -116,7 +116,5 @@ dist
 .pnp.*
 
 build/contracts
-client/src/contracts
 app/contracts
-app/client/src/contracts
 abis
