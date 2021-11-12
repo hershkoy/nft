@@ -32,7 +32,7 @@ contract("Date", (accounts) => {
 
         it("has correct tokenURI", async () => {
             let tokenURI = await date.tokenURI(0)
-            expect(tokenURI).to.equal("https://date.kie.codes/token/0")
+            expect(tokenURI).to.equal("https://opensea1.digiperson.win/token/0")
         })
 
         it("gifts the owner the origin of time", async () => {
@@ -47,15 +47,15 @@ contract("Date", (accounts) => {
             expect(meta[4].toString()).to.equal("ORIGIN")
         })
 
-        it("gifts the owner my birthday", async () => {
-            let owner = await date.ownerOf(1986, 6, 12)
+        it("gifts the owner ETH genesis", async () => {
+            let owner = await date.ownerOf(2015, 7, 30)
             expect(owner).to.equal(accounts[0])
 
-            let title = await date.titleOf(1986, 6, 12)
-            expect(title).to.equal("CBD")
+            let title = await date.titleOf(2015, 7, 30)
+            expect(title).to.equal("ETH GENESIS")
 
-            title = await date.titleOf((1986-1)*372 + (6-1)*31 + 12-1)
-            expect(title).to.equal("CBD")
+            title = await date.titleOf((2015-1)*372 + (7-1)*31 + 30-1)
+            expect(title).to.equal("ETH GENESIS")
         })
 
         it("gifts the owner elon's birthday", async () => {
@@ -250,8 +250,8 @@ contract("Date", (accounts) => {
             let title = await date.titleOf(0)
             expect(title).to.equal("This is the beginning")
 
-            await date.changeTitleOf(1986, 6, 12, "HBD2ME")
-            title = await date.titleOf(1986, 6, 12)
+            await date.changeTitleOf(2015, 7, 30, "HBD2ME")
+            title = await date.titleOf(2015, 7, 30)
             expect(title).to.equal("HBD2ME")
         })
 
@@ -264,10 +264,10 @@ contract("Date", (accounts) => {
             expect(title).to.equal("This is the beginning")
 
             await expectRevert(
-                date.changeTitleOf(1986, 6, 12, "this will fail", { from: accounts[1] }),
+                date.changeTitleOf(2015, 7, 30, "this will fail", { from: accounts[1] }),
                 "only the owner of this date can change its title"
             )
-            title = await date.titleOf(1986, 6, 12)
+            title = await date.titleOf(2015, 7, 30)
             expect(title).to.equal("HBD2ME")
         })
     })

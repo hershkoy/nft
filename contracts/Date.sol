@@ -19,25 +19,25 @@ contract Date is Ownable, ERC721 {
     string private _currentBaseURI;
 
     constructor() ERC721("Date", "DATE") {
-        setBaseURI("https://date.kie.codes/token/");
+        setBaseURI("https://opensea1.digiperson.win/token/");
 
         mint(1, 1, 1, 4, "ORIGIN");
         (uint16 now_year, uint8 now_month, uint8 now_day) = timestampToDate(block.timestamp);
         mint(now_year, now_month, now_day, 4, "Date Token Start");
         mint(2015, 7, 30, 6, "ETH GENESIS");
-        mint(1452, 4, 15, 5, "Art is never finished, only abandoned.");
-        mint(1605, 11, 5, 1, "Remember, remember, the 5th of November.");
-        mint(1564, 4, 23, 2, "To be, or not to be");
+        mint(2000, 1, 1, 5, "The new century");
+        mint(2009, 1, 3, 1, "Bitcoin was born.");
+        mint(2001, 9, 11, 2, "Never forget");
         mint(1969, 7, 20, 3, "One small step for man");
-        mint(1986, 6, 12, 0, "CBD");
         mint(1971, 6, 28, 7, "Elon's Birthday");
+        mint(2011, 12, 5, 0, "We've found our next home, Kepler-22b");
     }
 
     function setBaseURI(string memory baseURI) public onlyOwner {
         _currentBaseURI = baseURI;
     }
 
-    function _baseURI() internal view virtual override returns (string memory) {
+    function _baseURI() internal override view virtual returns (string memory) {
         return _currentBaseURI;
     }
 
