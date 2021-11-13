@@ -17,7 +17,7 @@
   },
   "scripts": {
     "heroku-prebuild": "npm install -g yarn",
-    "build": "cd app/client && yarn install && yarn build && cd .. && yarn install && yarn start",
+    "build": "cd app/client && yarn install && yarn build && cd .. && yarn install && node index.js",
     "start": "cd app/client && yarn start"
   },
   "heroku-run-build-script": true
