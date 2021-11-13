@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Provider API for the date chain etherium nft application.",
   "main": "index.js",
+  "engines": {
+    "node": "14.x"
+  }, 
   "scripts": {
     "start": "nodemon index.js",
     "client:build": "(cd client && npm run build)",
