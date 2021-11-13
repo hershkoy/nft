@@ -116,5 +116,4 @@ dist
 .pnp.*
 
 build/contracts
-app/contracts
 abis
