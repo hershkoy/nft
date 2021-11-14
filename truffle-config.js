@@ -23,7 +23,14 @@ require('dotenv').config();
 const path = require("path");
 const web3 = require("web3");
 const mnemonic = process.env["ACCOUNT_MNEMONIC"];
-const infuraToken = process.env["INFURA_TOKEN"]
+const infuraToken = process.env["INFURA_TOKEN"];
+
+var privateKeys = [
+  mnemonic
+];
+
+console.log(`infuraToken:${infuraToken}`);
+console.log(`mnemonic:${mnemonic}`);
 
 module.exports = {
   /**

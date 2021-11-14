@@ -117,3 +117,5 @@ dist
 
 build/contracts
 abis
+artifacts/
+cache/

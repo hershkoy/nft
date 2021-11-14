@@ -1,0 +1,5 @@
+truffle compile
+
+deploying 
+https://dev.to/emanuelferreira/how-to-deploy-smart-contract-to-rinkeby-testnet-using-infura-and-hardhat-5ddj
+yarn hardhat run scripts/deploy.js --network rinkeby
