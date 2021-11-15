@@ -4,7 +4,9 @@ pragma solidity >=0.4.22 <0.9.0;
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
-contract Date is Ownable, ERC721 {
+//import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
+
+contract Date is Ownable, ERC721{
 
     struct Metadata {
         uint16 year;
@@ -18,7 +20,7 @@ contract Date is Ownable, ERC721 {
 
     string private _currentBaseURI;
 
-    constructor() ERC721("Date", "DATE") {
+    constructor() ERC721 ("Date", "DATE") {
         setBaseURI("https://opensea1.digiperson.win/token/");
 
         mint(1, 1, 1, 4, "ORIGIN");
@@ -33,11 +35,29 @@ contract Date is Ownable, ERC721 {
         mint(2011, 12, 5, 0, "We've found our next home, Kepler-22b");
     }
 
-    function setBaseURI(string memory baseURI) public onlyOwner {
-        _currentBaseURI = baseURI;
+    /*
+        function _beforeTokenTransfer(address from, address to, uint256 tokenId)
+        internal
+        override(ERC721, ERC721Enumerable)
+        {
+            super._beforeTokenTransfer(from, to, tokenId);
+        }
+
+        function supportsInterface(bytes4 interfaceId)
+        public
+        view
+        override(ERC721, ERC721Enumerable)
+        returns (bool)
+        {
+            return super.supportsInterface(interfaceId);
+        }
+    */
+
+    function setBaseURI(string memory baseURI_t) public onlyOwner {
+        _currentBaseURI = baseURI_t;
     }
 
-    function _baseURI() internal override view virtual returns (string memory) {
+    function baseURI() public view override  returns (string memory) {
         return _currentBaseURI;
     }
 
